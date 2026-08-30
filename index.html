@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Bank App</title>
+<meta name="theme-color" content="#000000" />
+<link rel="manifest" href="manifest.json" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="phone" id="phone">
+
+  <!-- ============ HOME SCREEN ============ -->
+  <section class="screen" id="home-screen">
+
+    <div class="top">
+      <div class="greeting">
+        <div class="avatar avatar-user">S</div>
+        <div>
+          <div class="sub">Good afternoon</div>
+          <div class="name">Smart</div>
+        </div>
+      </div>
+      <button class="icon-btn" id="bell-btn" aria-label="Notifications">
+        <svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+      </button>
+    </div>
+
+    <div class="wallet-row">
+      <button class="wallet-pill" id="wallet-btn">
+        <span class="flag">🇺🇸</span> USD wallet
+        <svg viewBox="0 0 24 24" class="chev-down"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+    </div>
+
+    <div class="balance-block">
+      <div class="sub">Available Balance</div>
+      <div class="balance-row">
+        <span class="balance" id="balance-display">$102,201.09</span>
+        <button class="icon-btn" id="eye-btn" aria-label="Toggle balance visibility">
+          <svg viewBox="0 0 24 24" id="eye-icon"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8Z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="actions-row">
+      <button class="action-btn primary" id="send-btn">
+        <svg viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+        Send
+      </button>
+      <button class="action-btn" id="receive-btn">
+        <svg viewBox="0 0 24 24"><path d="M17 7 7 17"/><path d="M17 17H7V7"/></svg>
+        Recieve
+      </button>
+      <button class="action-btn" id="swap-btn">
+        <svg viewBox="0 0 24 24"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>
+        Swap
+      </button>
+    </div>
+
+    <div class="section-label">Make payments</div>
+    <div class="quickpay-row">
+      <button class="quickpay-btn" data-label="Airtime">
+        <span class="quickpay-circle"><svg viewBox="0 0 24 24"><path d="M2 20h.01"/><path d="M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20V8"/><path d="M22 4v16"/></svg></span>
+        <span>Airtime</span>
+      </button>
+      <button class="quickpay-btn" data-label="Data">
+        <span class="quickpay-circle"><svg viewBox="0 0 24 24"><path d="M5 13a10 10 0 0 1 14 0"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M2 8.82a15 15 0 0 1 20 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></span>
+        <span>Data</span>
+      </button>
+      <button class="quickpay-btn" data-label="Electricity">
+        <span class="quickpay-circle"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg></span>
+        <span>Electricity</span>
+      </button>
+      <button class="quickpay-btn" data-label="All">
+        <span class="quickpay-circle"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></span>
+        <span>All</span>
+      </button>
+    </div>
+
+    <div class="tx-header">
+      <span class="tx-title">Transactions</span>
+      <button class="link-btn" id="see-all-btn">See all</button>
+    </div>
+
+    <div class="tx-list" id="tx-list"></div>
+
+    <nav class="bottom-nav">
+      <button class="nav-item active" data-nav="Home">
+        <svg viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><path d="M9 22V12h6v10"/></svg>
+        <span>Home</span>
+      </button>
+      <button class="nav-item" data-nav="Cards">
+        <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+        <span>Cards</span>
+      </button>
+      <button class="nav-item" data-nav="Profile">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+        <span>Profile</span>
+      </button>
+      <button class="nav-item" data-nav="Settings">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"/></svg>
+        <span>Settings</span>
+      </button>
+    </nav>
+  </section>
+
+  <!-- ============ SEND MONEY SCREEN ============ -->
+  <section class="screen hidden" id="send-screen">
+
+    <div class="send-top">
+      <button class="icon-btn" id="back-btn" aria-label="Back">
+        <svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <span class="send-title">Send money</span>
+      <button class="icon-btn" id="scan-btn" aria-label="Scan">
+        <svg viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><line x1="7" y1="12" x2="17" y2="12"/></svg>
+      </button>
+    </div>
+
+    <div class="recipient-card">
+      <div class="bank-badge">citi</div>
+      <div class="recipient-info">
+        <div class="recipient-account">3267882399</div>
+        <div class="recipient-name">Jennifer Watkings</div>
+      </div>
+      <button class="icon-btn" id="clear-recipient-btn" aria-label="Clear">
+        <svg viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+
+    <div class="amount-block">
+      <div class="amount-display"><span class="dollar">$</span><span id="amount-value">1200.00</span></div>
+      <div class="sub" id="available-balance-text">Available balance $102,201.09</div>
+
+      <div class="quick-amounts" id="quick-amounts">
+        <button data-amount="1000">$1,000</button>
+        <button data-amount="2000">$2,000</button>
+        <button data-amount="5000">$5,000</button>
+        <button data-amount="10000">$10,000</button>
+      </div>
+    </div>
+
+    <div class="keypad" id="keypad">
+      <button data-key="1">1</button>
+      <button data-key="2">2</button>
+      <button data-key="3">3</button>
+      <button data-key="4">4</button>
+      <button data-key="5">5</button>
+      <button data-key="6">6</button>
+      <button data-key="7">7</button>
+      <button data-key="8">8</button>
+      <button data-key="9">9</button>
+      <button data-key=".">.</button>
+      <button data-key="0">0</button>
+      <button data-key="back" aria-label="Delete">
+        <svg viewBox="0 0 24 24"><path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Z"/><line x1="18" y1="9" x2="12" y2="15"/><line x1="12" y1="9" x2="18" y2="15"/></svg>
+      </button>
+    </div>
+
+    <div class="swipe-wrap">
+      <div class="swipe-track" id="swipe-track">
+        <span class="swipe-label" id="swipe-label">Swipe to send&nbsp;&nbsp;»&nbsp;»</span>
+        <div class="swipe-knob" id="swipe-knob">
+          <svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="toast" id="toast"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

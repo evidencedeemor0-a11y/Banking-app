@@ -1,0 +1,11 @@
+{
+  "name": "Bank App",
+  "short_name": "Bank",
+  "description": "A clean, mockup-accurate bank app front end with a working send-money flow.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait",
+  "icons": []
+}
